@@ -18,32 +18,32 @@ public class BookController implements BookApi {
     private BookService bookService;
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.POST)
+    @RequestMapping(value = "/book", consumes="*/*", method = RequestMethod.POST)
     public void addbook(@Valid Book body) throws Exception {
         bookService.addbook(body);
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.PUT)
+    @RequestMapping(value = "/book", consumes="*/*", method = RequestMethod.PUT)
     public void deletebook(Long bookId, String apiKey) throws Exception {
         bookService.deletebook(bookId, apiKey);
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.GET)
+    @RequestMapping(value = "/book/{bookId}", consumes="*/*", method = RequestMethod.GET)
     public Book getbookById(Long bookId) throws Exception {
         Book book = bookService.getbookById(bookId);
         return book;
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.PUT)
+    @RequestMapping(value = "/book/{bookId}", consumes="*/*", method = RequestMethod.POST)
     public void updatebook(@Valid Book body) throws Exception {
         bookService.updatebook(body);
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.PUT)
+    @RequestMapping(value = "/book/{bookId}", consumes="*/*", method = RequestMethod.DELETE)
     public void updatebookWithForm(Long bookId, String name, String status) throws Exception {
         /* TO DO */
 

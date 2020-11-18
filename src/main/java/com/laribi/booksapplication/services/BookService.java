@@ -28,8 +28,11 @@ public class BookService {
     }
 
     public Book getbookById(Long bookId) throws Exception {
+        /*
         Optional<BookEntity> bookEntity = bookRepository.findById(Math.toIntExact(bookId));
         return bookConverter.toModel(bookEntity);
+         */
+        return null;
     }
 
     public void updatebook(Book body) throws Exception {

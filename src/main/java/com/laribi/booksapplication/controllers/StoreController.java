@@ -21,20 +21,20 @@ public class StoreController implements StoreApi {
     private StoreService storeService;
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.PUT)
+    @RequestMapping(value = "/store/order", consumes="*/*", method = RequestMethod.POST)
     public void deleteOrder(@Min(1) Long orderId) throws Exception {
         storeService.deleteOrder(orderId);
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.GET)
+    @RequestMapping(value = "/store/order/{orderId}", consumes="*/*", method = RequestMethod.GET)
     public Order getOrderById(@Min(1) @Max(10) Long orderId) throws Exception {
         Order order = storeService.getOrderById(orderId);
     return order;
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.PUT)
+    @RequestMapping(value = "/store/order/{orderId}", consumes="*/*", method = RequestMethod.DELETE)
     public Order placeOrder(@Valid Order body) throws Exception {
         Order order = storeService.placeOrder(body);
         return order;

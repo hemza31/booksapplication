@@ -24,15 +24,17 @@ public class StoreService {
     }
 
      public Order getOrderById(Long orderId) throws Exception {
-         Optional<OrderEntity> orderEntity = storeRepository.findById(Math.toIntExact(orderId));
-         Order order = storeConverter.toModel(orderEntity);
-        return order;
-    }
+        /*
+        Optional<OrderEntity> orderEntity = storeRepository.findById(Math.toIntExact(orderId));
+        Order order = storeConverter.toModel(orderEntity);
+        */
+         return null;
+     }
 
     public Order placeOrder(Order body) throws Exception {
         OrderEntity orderEntity = storeConverter.toEntity(body);
         storeRepository.save(orderEntity);
-        Order order = storeConverter.toModel(Optional.of(orderEntity));
+        Order order = storeConverter.toModel(orderEntity);
         return order;
     }
 }

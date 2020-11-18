@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class StoreConverter {
 
-    public Order toModel(Optional<OrderEntity> orderEntity){
+    public Order toModel(OrderEntity orderEntity){
         final Order order = new Order();
 
         order.setId(orderEntity.getId());

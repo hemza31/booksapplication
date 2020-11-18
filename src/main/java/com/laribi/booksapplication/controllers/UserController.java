@@ -20,51 +20,51 @@ public class UserController implements UserApi {
     private UserService userService;
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.POST)
+    @RequestMapping(value = "/user", consumes="*/*", method = RequestMethod.POST)
     public void createUser(@Valid User body) throws Exception {
         userService.createUser(body);
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/createWithArray", consumes="*/*", method = RequestMethod.POST)
     public void createUsersWithArrayInput(@Valid List<User> body) throws Exception {
         userService.createUsersWithArrayInput(body);
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/createWithList", consumes="*/*", method = RequestMethod.POST)
     public void createUsersWithListInput(@Valid List<User> body) throws Exception {
         userService.createUsersWithListInput(body);
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.PUT)
+    @RequestMapping(value = "/user/{username}", consumes="*/*", method = RequestMethod.DELETE)
     public void deleteUser(String username) throws Exception {
         userService.deleteUser(username);
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/{username}", consumes="*/*", method = RequestMethod.GET)
     public User getUserByName(String username) throws Exception {
         User user = userService.getUserByName(username);
         return user;
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.PUT)
+    @RequestMapping(value = "/user/login", consumes="*/*", method = RequestMethod.GET)
     public String loginUser(@NotNull String username, @NotNull String password) throws Exception {
         String string = userService.loginUser(username, password);
         return string;
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.PUT)
+    @RequestMapping(value = "/user/logout", consumes="*/*", method = RequestMethod.PUT)
     public void logoutUser() throws Exception {
         userService.logoutUser();
     }
 
     @Override
-    @RequestMapping(value = "/components", consumes="*/*", method = RequestMethod.PUT)
+    @RequestMapping(value = "/user/{username}", consumes="*/*", method = RequestMethod.PUT)
     public void updateUser(String username, @Valid User body) throws Exception {
         userService.updateUser(username, body);
     }
